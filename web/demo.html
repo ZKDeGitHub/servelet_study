@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    form表单：
+        action：提交地址   参照地址方式(相对路径、根路径)
+        method：提交方式   GET POST
+
+        相对路径：
+            初始地址：http://localhost:8080/demo.html
+            目标地址：http://localhost:8080/demo03
+            demo03
+        根路径：
+            目标地址：http://localhost:8080/demo03
+            /demo03
+-->
+<form action="/servelet_study_war_exploded/demo03" method="post">
+    <!--GET方式：http://localhost:8080/demo03?userName=tom-->
+    用户名：<input type="text" name="userName">
+    <br>
+    <input type="submit">
+</form>
+
+
+<!--<form>
+    &lt;!&ndash;http://localhost:8080/demo03?userName=tom&ndash;&gt;
+    用户名：<input id="userName" type="text">
+    <br>
+    <input type="button" value="提交" id="btn">
+</form>-->
+
+<!--超链接-->
+<a href="/servelet_study_war_exploded/demo03?userName=maria">ServletMethodDemo03</a>
+
+</body>
+<script>
+    /*当点击提交按钮时*/
+    document.getElementById("btn").onclick = function () {
+        // 模拟超链接的效果
+        location.href = "/servelet_study_war_exploded/demo03?userName=" + document.getElementById("userName").value;
+    }
+
+</script>
+</html>

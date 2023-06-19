@@ -3,4 +3,50 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+<!--    &lt;!&ndash;配置Servlet：了解&ndash;&gt;
+    <servlet>
+        <servlet-name>ServletCreateMethod1</servlet-name>
+        &lt;!&ndash;处理请求的服务类&ndash;&gt;
+        <servlet-class>com.javasm.servlet.basic.ServletCreateMethod1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        &lt;!&ndash;内容不限，但是要求两个servlet-name中的内容保持一致&ndash;&gt;
+        <servlet-name>ServletCreateMethod1</servlet-name>
+        &lt;!&ndash;请求路径：注意(/)&ndash;&gt;
+        <url-pattern>/method1</url-pattern>
+    </servlet-mapping>-->
+
+    <servlet>
+        <servlet-name>ServletMethodDemo01</servlet-name>
+        <servlet-class>com.javasm.servlet.method.ServletMethodDemo01</servlet-class>
+
+        <!--初始化参数：只能服务于当前Servlet   适合设置简单的参数(字符串类型)-->
+        <init-param>
+            <param-name>name</param-name>
+            <param-value>tom</param-value>
+        </init-param>
+
+        <!--可以将Servlet的生命周期提前：服务器启动时-->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletMethodDemo01</servlet-name>
+        <url-pattern>/demo01</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ServletMethodDemo02</servlet-name>
+        <servlet-class>com.javasm.servlet.method.ServletMethodDemo02</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletMethodDemo02</servlet-name>
+        <url-pattern>/demo02</url-pattern>
+    </servlet-mapping>
+
+    <!--上下文参数：服务于多个Servlet   适合设置简单的参数(字符串类型)-->
+    <context-param>
+        <param-name>address</param-name>
+        <param-value>河南郑州</param-value>
+    </context-param>
+
 </web-app>
