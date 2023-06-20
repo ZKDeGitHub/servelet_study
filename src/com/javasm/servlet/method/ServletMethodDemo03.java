@@ -40,14 +40,17 @@ public class ServletMethodDemo03 extends HttpServlet {
         // getParameter()：获取请求数据   根据key获取val，返回值是String类型
         String userName = req.getParameter("userName");
         System.out.println("userName=" + userName);
+
         // ...
         // 设置响应数据不乱码
         resp.setContentType("text/html;charset=utf-8");//注意：text->test  页面下载现象
+
         // 写出响应数据
         // 获取输出流
         PrintWriter writer = resp.getWriter();
         // 写出响应数据
         writer.print("你好：" + userName);
+
         // 资源关闭
         writer.flush();
         writer.close();

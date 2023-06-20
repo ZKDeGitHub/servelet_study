@@ -6,42 +6,68 @@
 </head>
 <body>
 <!--
+    四种跳转到demo3的方式
+    1. 浏览器地址栏敲地址：http://localhost:8080/servelet_study_war_exploded/demo03?userName=23123
+    2. form表单，设置method值为get;
+    3. location.href;
+    4. 超链接;
+-->
+
+
+<!--
+    方式二：form表单
     form表单：
         action：提交地址   参照地址方式(相对路径、根路径)
         method：提交方式   GET POST
 
         相对路径：
-            初始地址：http://localhost:8080/demo.html
-            目标地址：http://localhost:8080/demo03
+            初始地址：http://localhost:8080/servelet_study_war_exploded/demo.html
+            目标地址：http://localhost:8080/servelet_study_war_exploded/demo03
             demo03
         根路径：
-            目标地址：http://localhost:8080/demo03
+            目标地址：http://localhost:8080/servelet_study_war_exploded/demo03
             /demo03
 -->
-<form action="/servelet_study_war_exploded/demo03" method="post">
-    <!--GET方式：http://localhost:8080/demo03?userName=tom-->
-    用户名：<input type="text" name="userName">
+<form action="/servelet_study_war_exploded/demo03" method="get">
+<!--GET方式：http://localhost:8080/demo03?userName=tom-->
+    用户名按get：<input type="text" name="userName">
     <br>
     <input type="submit">
 </form>
+<br>
+<br>
 
 
-<!--<form>
-    &lt;!&ndash;http://localhost:8080/demo03?userName=tom&ndash;&gt;
-    用户名：<input id="userName" type="text">
+<form action="/servelet_study_war_exploded/demo03" method="get">
+    <!--post方式：http://localhost:8080/demo03?userName=tom-->
+    用户名按post：<input type="text" name="userName">
+    <br>
+    <input type="submit">
+</form>
+<br>
+<br>
+
+<!--方式三：根据点击提交的onclick方法，来跳转-->
+<form>
+    <!--http://localhost:8080/servelet_study_war_exploded/demo03?userName=tom-->
+    用户名2：<input id="uName" type="text">
     <br>
     <input type="button" value="提交" id="btn">
-</form>-->
+</form>
 
-<!--超链接-->
-<a href="/servelet_study_war_exploded/demo03?userName=maria">ServletMethodDemo03</a>
+<!--方式四：超链接-->
+
+<a href="/servelet_study_war_exploded/demo03?userName=maria">跳转ServletMethodDemo03</a>
 
 </body>
+
+<!--方式三的 onclick方法，根据input的id来关联-->
 <script>
     /*当点击提交按钮时*/
     document.getElementById("btn").onclick = function () {
         // 模拟超链接的效果
-        location.href = "/servelet_study_war_exploded/demo03?userName=" + document.getElementById("userName").value;
+        // 根据input输入框的id关联，获取输入的内容
+        location.href = "/servelet_study_war_exploded/demo03?userName=" + document.getElementById("uName").value;
     }
 
 </script>
